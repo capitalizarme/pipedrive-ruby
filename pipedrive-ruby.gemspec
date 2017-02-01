@@ -49,6 +49,7 @@ Gem::Specification.new do |s|
     "lib/pipedrive/user-connection.rb",
     "lib/pipedrive/user-setting.rb",
     "lib/pipedrive/user.rb",
+    "lib/pipedrive/mail-message.rb",
     "pipedrive-ruby.gemspec",
     "test/data/create_deal_body.json",
     "test/data/create_note_body.json",

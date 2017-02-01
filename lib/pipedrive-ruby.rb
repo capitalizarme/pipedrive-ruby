@@ -26,6 +26,7 @@ require 'pipedrive/user-connection'
 require 'pipedrive/push-notification'
 require 'pipedrive/recent'
 require 'pipedrive/follower'
+require 'pipedrive/mail-message'
 
 module Pipedrive
 
