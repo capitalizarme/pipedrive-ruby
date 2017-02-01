@@ -17,8 +17,8 @@ module Pipedrive
       Activity.all(get "#{resource_path}/#{id}/activities")
     end
 
-    def mail_messages
-      MailMessage.all(get "#{resource_path}/#{id}/mailMessages")
+    def mail_messages(options={})
+      MailMessage.all(get "#{resource_path}/#{id}/mailMessages", options)
     end
 
     def followers
