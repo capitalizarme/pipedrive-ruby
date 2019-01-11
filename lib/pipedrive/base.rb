@@ -50,6 +50,7 @@ module Pipedrive
     # @param [Hash] opts
     # @return [Boolean]
     def update(opts = {})
+      sleep 0.1
       res = put "#{resource_path}/#{id}", :body => opts
       if res.success?
         res['data'] = Hash[res['data'].map {|k, v| [k.to_sym, v] }]
@@ -85,6 +86,7 @@ module Pipedrive
       end
 
       def all(response = nil, options={},get_absolutely_all=false)
+        sleep 0.1
         res = response || get(resource_path, options)
         if res.ok?
           data = res['data'].nil? ? [] : res['data'].map{|obj| new(obj)}
@@ -99,6 +101,7 @@ module Pipedrive
       end
 
       def create( opts = {} )
+        sleep 0.1
         res = post resource_path, :body => opts
         if res.success?
           res['data'] = opts.merge res['data']
@@ -109,11 +112,13 @@ module Pipedrive
       end
       
       def find(id)
+        sleep 0.1
         res = get "#{resource_path}/#{id}"
         res.ok? ? new(res) : bad_response(res,id)
       end
 
       def find_by_name(name, opts={})
+        sleep 0.1
         res = get "#{resource_path}/find", :query => { :term => name }.merge(opts)
         res.ok? ? new_list(res) : bad_response(res,{:name => name}.merge(opts))
       end
